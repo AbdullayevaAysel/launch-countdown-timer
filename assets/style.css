@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@300;400;500;600;700&display=swap");
+:root {
+  --Grayish-blue: hsl(237, 18%, 59%);
+  --Soft-red: hsl(345, 95%, 68%);
+  --White: hsl(0, 0%, 100%);
+  --Dark-desaturated-blue: hsl(236, 21%, 26%);
+  --Very-dark-blue: hsl(235, 16%, 14%);
+  --Very-dark: hsl(234, 17%, 12%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Red Hat Text", sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: var(--Very-dark-blue) url("../images/bg-stars.svg") top center / cover no-repeat;
+  padding-top: 13rem;
+}
+
+.timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 10rem;
+}
+
+.timer .time-count {
+  color: var(--Soft-red);
+  background: var(--Dark-desaturated-blue);
+  font-size: 7rem;
+  font-weight: 700;
+  padding: 2rem 3rem;
+  border-radius: 0.8rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  /* overflow: hidden; */
+  box-shadow: hsl(234, 17%, 12%) 0px 2px 3px, rgba(0, 0, 0, 0.3) 0px 10px 1px 0px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  
+}
+
+.timer .time-count span {
+    background: var(--Very-dark);
+    border-radius: 50%;
+    padding: 1rem;
+}
+
+.timer .time-count span:nth-child(1) {
+    position: absolute;
+    left: -1rem;
+}
+
+.timer .time-count span:nth-child(2) {
+    position: absolute;
+    right: -1rem;
+}
+
+.timer .time-count::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 50%;
+  border-bottom: 0.1rem solid var(--Very-dark-blue);
+  background: rgba(0,0,0,0.2);
+  /* background: red; */
+  /* transform-origin: bottom;
+  transform: rotateX(0deg);
+  animation: rotate 3s ease-in 1s infinite normal; */
+}
+
+@keyframes rotate {
+    from {
+        transform: rotateX(0deg);
+    }
+    to {
+        transform: rotateX(-180deg);
+    }
+}
+
+
+.timer .time-name {
+  color: var(--Grayish-blue);
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.8rem;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.title {
+  color: var(--White);
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.8rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 200px;
+  background: url("../images/pattern-hills.svg") top center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
