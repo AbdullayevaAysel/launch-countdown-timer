@@ -34,7 +34,8 @@ body {
   position: relative;
   width: 100vw;
   height: 100vh;
-  background: var(--Very-dark-blue) url("../images/bg-stars.svg") top center / cover no-repeat;
+  background: var(--Very-dark-blue) url("../images/bg-stars.svg") top center /
+    cover no-repeat;
   padding-top: 13rem;
 }
 
@@ -51,30 +52,30 @@ body {
   background: var(--Dark-desaturated-blue);
   font-size: 7rem;
   font-weight: 700;
-  padding: 2rem 3rem;
+  /* padding: 2rem 3rem; */
   border-radius: 0.8rem;
   position: relative;
   display: flex;
   align-items: center;
-  /* overflow: hidden; */
-  box-shadow: hsl(234, 17%, 12%) 0px 2px 3px, rgba(0, 0, 0, 0.3) 0px 10px 1px 0px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  
+  overflow: hidden;
+  box-shadow: hsl(234, 17%, 12%) 0px 2px 3px,
+    rgba(0, 0, 0, 0.3) 0px 10px 1px 0px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .timer .time-count span {
-    background: var(--Very-dark);
-    border-radius: 50%;
-    padding: 1rem;
+  background: var(--Very-dark);
+  border-radius: 50%;
+  padding: 1rem;
+  position: absolute;
+  z-index: 100;
 }
 
 .timer .time-count span:nth-child(1) {
-    position: absolute;
-    left: -1rem;
+  left: -1rem;
 }
 
-.timer .time-count span:nth-child(2) {
-    position: absolute;
-    right: -1rem;
+.timer .time-count span:nth-child(3) {
+  right: -1rem;
 }
 
 .timer .time-count::before {
@@ -87,22 +88,17 @@ body {
   width: 100%;
   height: 50%;
   border-bottom: 0.1rem solid var(--Very-dark-blue);
-  background: rgba(0,0,0,0.2);
-  /* background: red; */
-  /* transform-origin: bottom;
-  transform: rotateX(0deg);
-  animation: rotate 3s ease-in 1s infinite normal; */
+  background: rgba(0, 0, 0, 0.2);
 }
 
 @keyframes rotate {
-    from {
-        transform: rotateX(0deg);
-    }
-    to {
-        transform: rotateX(-180deg);
-    }
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(-180deg);
+  }
 }
-
 
 .timer .time-name {
   color: var(--Grayish-blue);
@@ -132,4 +128,63 @@ footer {
   align-items: center;
   justify-content: center;
   gap: 3rem;
+}
+
+.top,
+.bottom,
+.flip .top-flip,
+.flip .bottom-flip {
+  height: 1.05em;
+  line-height: 1.52;
+  overflow: hidden;
+  padding: 2rem 3rem;
+  width: 100%;
+}
+
+.top,
+.flip .top-flip {
+  background: var(--Dark-desaturated-blue);
+}
+
+.bottom,
+.flip .bottom-flip {
+  display: flex;
+  align-items: flex-end;
+}
+
+.flip {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.flip .top-flip {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  transform-origin: bottom;
+  animation: top-flip 1s ease-in;
+}
+
+.flip .bottom-flip {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  transform-origin: top;
+  animation: bottom-flip 1s ease-out 1s;
+  transform: rotateX(90deg);
+}
+
+@keyframes top-flip {
+  100% {
+    transform: rotateX(90deg);
+  }
+}
+
+@keyframes bottom-flip {
+  100% {
+    transform: rotateX(0deg);
+  }
 }

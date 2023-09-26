@@ -1,9 +1,7 @@
-let number = 823456
+const date = new Date().setHours(new Date().getHours() + 192)
 
-let seconds = 60
-let minutes = 60
-let hour = 24
-
-let days = Math.floor(number/hour/seconds/minutes)
-
-console.log(days);
+setInterval(() => {
+    const currentDate = new Date();
+    const timeBetween = Math.ceil((date - currentDate)/1000)
+    
+}, 1000);
