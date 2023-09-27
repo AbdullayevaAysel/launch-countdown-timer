@@ -40,10 +40,9 @@ body {
 }
 
 .timer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 3rem;
   margin-top: 10rem;
 }
 
@@ -117,6 +116,13 @@ footer {
   gap: 3rem;
 }
 
+footer a:hover img {
+  filter: invert(67%) sepia(35%) saturate(6895%) hue-rotate(309deg)
+    brightness(99%) contrast(98%);
+  cursor: pointer;
+  transform: all 3s ease-in;
+}
+
 .top,
 .bottom,
 .flip .top-flip,
@@ -144,7 +150,6 @@ footer {
   display: inline-flex;
   flex-direction: column;
   overflow: hidden;
-  width: 15rem;
   margin: 0 auto;
 }
 
@@ -175,5 +180,52 @@ footer {
 @keyframes bottom-flip {
   100% {
     transform: rotateX(0deg);
+  }
+}
+
+@media (max-width: 992px) {
+
+  .top,
+  .bottom,
+  .flip .top-flip,
+  .flip .bottom-flip {
+    height: 0.9em;
+    line-height: 1.5;
+    overflow: hidden;
+    padding: 1rem 2rem;
+  }
+
+  .timer .time-count {
+    font-size: 6rem;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .top,
+  .bottom,
+  .flip .top-flip,
+  .flip .bottom-flip {
+    height: 0.9em;
+    line-height: 1.5;
+    overflow: hidden;
+    padding: 0.5rem;
+  }
+
+  .timer .time-count {
+    font-size: 4rem;
+    font-weight: 600;
+  }
+
+  .title {
+    font-size: 1.3rem;
+  }
+
+  .timer .time-name {
+    font-size: 0.5rem;
+  }
+
+  .timer {
+    gap: 0.7rem;
   }
 }
