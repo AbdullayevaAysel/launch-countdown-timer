@@ -10,7 +10,7 @@ setInterval(() => {
   const currentDate = new Date()
   const timeBetween = Math.ceil((date - currentDate) / 1000)
   allFilpCard(currentDate, timeBetween)
-}, 1000)
+}, 250)
 
 function allFilpCard(currentDate, timeBetween) {
   let second = timeBetween % 60
@@ -26,7 +26,7 @@ function allFilpCard(currentDate, timeBetween) {
 
       if(second === topOldHtml) return
 
-      bottom.textContent = topOldHtml
+      bottom.textContent = addZero(topOldHtml)
 
       const topFlip = document.createElement("div")
       topFlip.classList.add("top-flip")
@@ -40,7 +40,7 @@ function allFilpCard(currentDate, timeBetween) {
       el.append(topFlip, bottomFlip)
 
       topFlip.addEventListener("animationstart", function(){
-        top.textContent = second
+        top.textContent = addZero(second)
       })
 
       topFlip.addEventListener("animationend", function(){
@@ -48,12 +48,12 @@ function allFilpCard(currentDate, timeBetween) {
       })
 
       bottomFlip.addEventListener("animationend", function(){
-        bottom.textContent = second
+        bottom.textContent = addZero(second)
         this.remove()
       })
 
-      top.innerHTML = addZero(second)
-      bottom.innerHTML = addZero(second)
+    //   top.innerHTML = addZero(second)
+    //   bottom.innerHTML = addZero(second)
     }
     if (el.dataset.minutes) {
       let bottom = el.querySelector(".bottom")

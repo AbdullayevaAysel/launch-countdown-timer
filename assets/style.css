@@ -165,7 +165,7 @@ footer {
   left: 0;
   top: 0;
   transform-origin: bottom;
-  animation: top-flip 1s ease-in;
+  animation: top-flip 250ms ease-in;
 }
 
 .flip .bottom-flip {
@@ -173,7 +173,7 @@ footer {
   width: 100%;
   bottom: 0;
   transform-origin: top;
-  animation: bottom-flip 1s ease-out 1s;
+  animation: bottom-flip 250ms ease-out 250ms;
   transform: rotateX(90deg);
 }
 
