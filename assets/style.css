@@ -78,19 +78,6 @@ body {
   right: -1rem;
 }
 
-.timer .time-count::before {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 50%;
-  border-bottom: 0.1rem solid var(--Very-dark-blue);
-  background: rgba(0, 0, 0, 0.2);
-}
-
 @keyframes rotate {
   from {
     transform: rotateX(0deg);
@@ -138,12 +125,12 @@ footer {
   line-height: 1.52;
   overflow: hidden;
   padding: 2rem 3rem;
-  width: 100%;
 }
 
 .top,
 .flip .top-flip {
   background: var(--Dark-desaturated-blue);
+  border-bottom: 0.1rem solid var(--Very-dark-blue);
 }
 
 .bottom,
@@ -157,6 +144,8 @@ footer {
   display: inline-flex;
   flex-direction: column;
   overflow: hidden;
+  width: 15rem;
+  margin: 0 auto;
 }
 
 .flip .top-flip {

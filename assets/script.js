@@ -24,9 +24,9 @@ function allFilpCard(currentDate, timeBetween) {
       let top = el.querySelector(".top")
       let topOldHtml = Number(top.textContent)
 
-      if(second === topOldHtml) return
-
       bottom.textContent = addZero(topOldHtml)
+      
+      if(second === topOldHtml) return
 
       const topFlip = document.createElement("div")
       topFlip.classList.add("top-flip")
@@ -51,32 +51,107 @@ function allFilpCard(currentDate, timeBetween) {
         bottom.textContent = addZero(second)
         this.remove()
       })
-
-    //   top.innerHTML = addZero(second)
-    //   bottom.innerHTML = addZero(second)
     }
     if (el.dataset.minutes) {
       let bottom = el.querySelector(".bottom")
-
       let top = el.querySelector(".top")
-      top.innerHTML = addZero(minutes)
-      bottom.innerHTML = addZero(minutes)
+      let topOldHtml = Number(top.textContent)
+
+      bottom.textContent = addZero(topOldHtml)
+      
+      if(minutes === topOldHtml) return
+
+      const topFlip = document.createElement("div")
+      topFlip.classList.add("top-flip")
+      topFlip.textContent = addZero(topOldHtml)
+
+      
+      const bottomFlip = document.createElement("div")
+      bottomFlip.classList.add("bottom-flip")
+      bottomFlip.textContent = addZero(minutes)
+      
+      el.append(topFlip, bottomFlip)
+
+      topFlip.addEventListener("animationstart", function(){
+        top.textContent = addZero(minutes)
+      })
+
+      topFlip.addEventListener("animationend", function(){
+        this.remove()
+      })
+
+      bottomFlip.addEventListener("animationend", function(){
+        bottom.textContent = addZero(minutes)
+        this.remove()
+      })
     }
 
     if (el.dataset.hours) {
       let bottom = el.querySelector(".bottom")
-
       let top = el.querySelector(".top")
-      top.innerHTML = addZero(hours)
-      bottom.innerHTML = addZero(hours)
+      let topOldHtml = Number(top.textContent)
+
+      bottom.textContent = addZero(topOldHtml)
+      
+      if(hours === topOldHtml) return
+
+      const topFlip = document.createElement("div")
+      topFlip.classList.add("top-flip")
+      topFlip.textContent = addZero(topOldHtml)
+
+      
+      const bottomFlip = document.createElement("div")
+      bottomFlip.classList.add("bottom-flip")
+      bottomFlip.textContent = addZero(hours)
+      
+      el.append(topFlip, bottomFlip)
+
+      topFlip.addEventListener("animationstart", function(){
+        top.textContent = addZero(hours)
+      })
+
+      topFlip.addEventListener("animationend", function(){
+        this.remove()
+      })
+
+      bottomFlip.addEventListener("animationend", function(){
+        bottom.textContent = addZero(hours)
+        this.remove()
+      })
     }
 
     if (el.dataset.day) {
       let bottom = el.querySelector(".bottom")
-
       let top = el.querySelector(".top")
-      top.innerHTML = addZero(day)
-      bottom.innerHTML = addZero(day)
+      let topOldHtml = Number(top.textContent)
+
+      bottom.textContent = addZero(topOldHtml)
+      
+      if(day === topOldHtml) return
+
+      const topFlip = document.createElement("div")
+      topFlip.classList.add("top-flip")
+      topFlip.textContent = addZero(topOldHtml)
+
+      
+      const bottomFlip = document.createElement("div")
+      bottomFlip.classList.add("bottom-flip")
+      bottomFlip.textContent = addZero(day)
+      
+      el.append(topFlip, bottomFlip)
+
+      topFlip.addEventListener("animationstart", function(){
+        top.textContent = addZero(day)
+      })
+
+      topFlip.addEventListener("animationend", function(){
+        this.remove()
+      })
+
+      bottomFlip.addEventListener("animationend", function(){
+        bottom.textContent = addZero(day)
+        this.remove()
+      })
     }
   })
 }
